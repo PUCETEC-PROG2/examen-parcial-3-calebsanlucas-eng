@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+{% extends 'base.html' %}
+
+{% block title %} Detalle Artista - MusicStore{% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Artista</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        h1 {
+            color: #343a40;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+        }
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            margin: 5px;
+        }
+        .btn-edit {
+            background-color: #ffc107;
+            color: black;
+        }
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-back {
+            background-color: #6c757d;
+            color: white;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detalle del Artista</h1>
+    <div class="container">
+        <p><strong>Nombre:</strong> {{ artista.nombre }}</p>
+        <p><strong>País de Origen:</strong> {{ artista.pais_origen }}</p>
+        <div style="text-align: center;">
+            <a href="{% url 'editar_artista' artista.pk %}" class="btn btn-edit">Editar</a>
+            <a href="{% url 'eliminar_artista' artista.pk %}" class="btn btn-delete">Eliminar</a>
+            <a href="{% url 'lista_artistas' %}" class="btn btn-back">Volver a la lista</a>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

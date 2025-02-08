@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+{% extends 'base.html' %}
+
+{% block title %} Inicio - MusicStore{% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 50px;
+        }
+        h1 {
+            color: #343a40;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 20px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+        }
+        .btn-artistas {
+            background-color: #007bff;
+        }
+        .btn-albumes {
+            background-color: #28a745;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido al Catálogo Musical</h1>
+    <a href="{% url 'lista_artistas' %}" class="btn btn-artistas">Lista de Artistas</a>
+    <a href="{% url 'lista_albumes' %}" class="btn btn-albumes">Lista de Álbumes</a>
+</body>
+</html>
+{% endblock %}

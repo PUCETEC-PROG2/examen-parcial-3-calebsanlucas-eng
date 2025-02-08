@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+{% extends 'base.html' %}
+
+{% block title %}Detalle del Artista - MusicStore{% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Álbumes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #343a40;
+        }
+        .btn {
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        .btn-edit {
+            background-color: #ffc107;
+            color: black;
+        }
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-create {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .actions {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Álbumes</h1>
+    <a href="{% url 'crear_album' %}" class="btn-create">Crear Nuevo Álbum</a>
+    <ul>
+        {% for album in albumes %}
+            <li>
+                <a href="{% url 'detalle_album' album.pk %}">{{ album.titulo }}</a>
+                <div class="actions">
+                    <a href="{% url 'editar_album' album.pk %}" class="btn btn-edit">Editar</a>
+                    <a href="{% url 'eliminar_album' album.pk %}" class="btn btn-delete">Eliminar</a>
+                    <a href="{% url 'inicio' %}" class="btn btn-home">Volver al Inicio</a>
+
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}
